@@ -115,10 +115,12 @@ class Agent:
             print(f"Q-Table serialised: {self.q_table}")
 
 
-    def deserialize_q_table(self) -> None:
-        with open(f"../Resources/Q-TABLE/q_table_{self.PLAYER}.pkl", "rb") as file:
+    def deserialize_q_table(self, target_policy: bool) -> None:
+        policy_path = f"../Resources/Q-TABLE/q_table_{self.PLAYER}.pkl" if not target_policy else f"Resources/Q-TABLE/target_policy_{self.PLAYER}.pkl"
+        with open(policy_path, "rb") as file:
             self.q_table = pickle.load(file)
             print(f"Q-Table deserialized: {self.q_table}")
+
 
 
 

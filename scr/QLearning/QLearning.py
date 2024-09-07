@@ -42,7 +42,6 @@ class QLearning(TicTacToe):
             self.board = np.empty((3, 3), dtype=str)
             self.P1_AGENT.eligibility_trace = {}
             self.P2_AGENT.eligibility_trace = {}
-            state_action_tracker: list[tuple] = []
 
             while GameRules.check_terminal(self.board) == "":
 
@@ -60,9 +59,9 @@ class QLearning(TicTacToe):
 
                 # Updating Q-value
                 self.current_agent.update_q_value(current_state, action, self.current_agent.PLAYER,
-                                                  current_player_reward, state_action_tracker, next_state)
+                                                  current_player_reward, next_state)
                 self.get_opponent_agent().update_q_value(current_state, action, self.current_agent.PLAYER,
-                                                         opponent_reward, state_action_tracker, next_state)
+                                                         opponent_reward, next_state)
 
                 # Changing agent
                 self.current_agent = self.get_opponent_agent()
@@ -96,10 +95,9 @@ class QLearning(TicTacToe):
         self.P1_AGENT.serialise_q_table()
         self.P2_AGENT.serialise_q_table()
 
-
-    def load_policies(self) -> None:
-        self.P1_AGENT.deserialize_q_table()
-        self.P2_AGENT.deserialize_q_table()
+    def load_policies(self, target_policy: bool =False) -> None:
+        self.P1_AGENT.deserialize_q_table(target_policy)
+        self.P2_AGENT.deserialize_q_table(target_policy)
 
     def add_diagnostics_data(self, episode: int, terminal_tracker: list[str]) -> None:
         counts = Counter(terminal_tracker)
@@ -113,6 +111,9 @@ class QLearning(TicTacToe):
               f"| Learning rate: {self.P1_AGENT.alpha} "
               f"| Q-Table Size: {len(self.P1_AGENT.q_table)}")
 
+    def reset_q_tables(self) -> None:
+        self.P1_AGENT.q_table = {}
+        self.P2_AGENT.q_table = {}
 
 
 

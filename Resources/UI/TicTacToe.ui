@@ -36,7 +36,7 @@
     background-color: black; /* Default color */
     border: 2px solid white; /* Border color */
     border-radius: 5px; /* Rounded corners */
-    padding: 10px; /* Padding inside the button */
+    padding: 5px; /* Padding inside the button */
 }
 QPushButton:hover {
     background-color: #333; /* Dark gray for hover */
@@ -279,7 +279,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>600</y>
-     <width>600</width>
+     <width>335</width>
      <height>50</height>
     </rect>
    </property>
@@ -291,23 +291,19 @@ QPushButton:pressed {
     padding: 10px; /* Padding inside the button */
 }
 
-QCheckBox{
-	padding: 5px; /* Padding inside the checkbox */
-    text-align: center; /* Centers the text */
-    spacing: 10px; /* Adjust spacing between the indicator and the text */
-
+QLineEdit {
+    border-radius: 5px; /* Rounded corners for the indicator */
 }
 
-QCheckBox::indicator {
+QRadioButton::indicator {
     width: 20px; /* Size of the checkbox indicator */
     height: 20px; /* Size of the checkbox indicator */
     background-color: red; /* Default indicator background */
     border: 2px solid white; /* Border around the checkbox indicator */
     border-radius: 5px; /* Rounded corners for the indicator */
-    margin-left: auto; /* Center the indicator */
 }
 
-QCheckBox::indicator:checked {
+QRadioButton::indicator:checked {
     background-color: green; /* Lighter gray for checked */
     border: 2px solid white; /* Keeping the border color consistent */
 }
@@ -321,38 +317,170 @@ QCheckBox::indicator:checked {
    <property name="frameShadow">
     <enum>QFrame::Shadow::Raised</enum>
    </property>
-   <widget class="QCheckBox" name="playMinimax">
+   <widget class="QRadioButton" name="qLearningAiRadioButton">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>200</width>
-      <height>50</height>
+      <x>210</x>
+      <y>10</y>
+      <width>110</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>20</pointsize>
+      <pointsize>15</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>VERSE AI</string>
+     <string>Q Trained AI</string>
     </property>
     <property name="checked">
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QRadioButton" name="minimaxRadioButton">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>10</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Minimax AI</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="twoPlayerRadioButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>70</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Player</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="sidePanel_2">
+   <property name="geometry">
+    <rect>
+     <x>335</x>
+     <y>600</y>
+     <width>265</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    background-color: black; /* Default color */
+    border: 2px solid white; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the button */
+}
+
+QLineEdit {
+    border-radius: 5px; /* Rounded corners for the indicator */
+}
+
+QRadioButton::indicator {
+    width: 20px; /* Size of the checkbox indicator */
+    height: 20px; /* Size of the checkbox indicator */
+    background-color: red; /* Default indicator background */
+    border: 2px solid white; /* Border around the checkbox indicator */
+    border-radius: 5px; /* Rounded corners for the indicator */
+}
+
+QRadioButton::indicator:checked {
+    background-color: green; /* Lighter gray for checked */
+    border: 2px solid white; /* Keeping the border color consistent */
+}
+
+
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Shadow::Raised</enum>
+   </property>
    <widget class="QPushButton" name="train">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>20</x>
       <y>10</y>
       <width>110</width>
-      <height>41</height>
+      <height>30</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>TRAIN AI</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="episodeLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>11</y>
+      <width>100</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="inputMask">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::EchoMode::Normal</enum>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Episodes:</string>
     </property>
    </widget>
   </widget>
