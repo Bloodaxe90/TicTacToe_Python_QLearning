@@ -1,6 +1,5 @@
 
 import numpy as np
-from PySide6.QtWidgets import QPushButton
 
 
 class GameRules:
@@ -22,16 +21,17 @@ class GameRules:
             return board[1][1]
 
         # Checking for draw
-        counter = 0
-        for b in board.flat:
-            if b != "":
-                counter += 1
-        if counter == 9:
+        if cls.check_full(board):
             return "D"
 
         return ""
 
 
     @classmethod
-    def check_equal(cls, b1: str, b2: str, b3: str) -> bool:
-        return b1 != "" and b1 == b2 == b3
+    def check_full(cls, board: np.array) -> bool:
+        return all(value != "" for value in board.flat)
+
+
+    @classmethod
+    def check_equal(cls, v1: str, v2: str, v3: str) -> bool:
+        return v1 != "" and v1 == v2 == v3

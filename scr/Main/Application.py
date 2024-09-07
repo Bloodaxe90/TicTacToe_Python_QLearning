@@ -1,9 +1,9 @@
 from PySide6.QtGui import QKeyEvent
 from PySide6.QtWidgets import *
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtCore import QFile, Slot
+from PySide6.QtCore import QFile
 
-from scr.GameController import GameController
+from scr.Main.GameController import GameController
 
 
 class Application(QMainWindow):
@@ -11,7 +11,7 @@ class Application(QMainWindow):
         super().__init__()
 
         loader = QUiLoader()
-        ui_file = QFile("/Users/eric/PycharmProjects/TicTacToe/UI/TicTacToe.ui")
+        ui_file = QFile("/Users/eric/PycharmProjects/TicTacToe/Resources/UI/TicTacToe.ui")
         if not ui_file.open(QFile.ReadOnly):
             print(f"Failed to open file: {ui_file.errorString()}")
             return
@@ -30,6 +30,7 @@ def main():
     app = QApplication([])
     window = Application()
     window.show()
+    window.resize(600,650)
     app.exec()
 
 if __name__ == "__main__":

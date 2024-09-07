@@ -8,7 +8,7 @@ class Application(QMainWindow):
         super().__init__()
 
         loader = QUiLoader()
-        ui_file = QFile("/Users/eric/PycharmProjects/TicTacToe/UI/TicTacToe.ui")
+        ui_file = QFile("/Resources/UI/TicTacToe.ui")
         if not ui_file.open(QFile.ReadOnly):
             print(f"Failed to open file: {ui_file.errorString()}")
             return
