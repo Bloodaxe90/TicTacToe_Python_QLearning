@@ -47,21 +47,23 @@ class GameController(QObject):
                     # Verse Q Learned AI
                     self.q_learning.play(sender)
             elif sender == self.train_button:
+                #Train Ai
                 if isinstance(self.episode_number_line_edit.text(), int):
                     self.q_learning.MAX_EPISODES = self.episode_number_line_edit.text()
-                self.terminal_label.setText("TRAINING")
-                self.terminal_label.setVisible(True)
                 self.q_learning.train()
-                self.terminal_label.setVisible(False)
 
 
     @Slot()
     def key_pressed(self, event: QKeyEvent) -> None:
         match event.key():
             case 32: self.reset() #(Space)
+            #Save current policy
             case 83: self.q_learning.save_policies() #(S)
+            #Load previously saved policy
             case 76: self.q_learning.load_policies() #(L)
+            #Load target policy
             case 84: self.q_learning.load_policies(True) #(T)
+            #Reset agent Q-Tables
             case 82: self.q_learning.reset_q_tables() #(R)
 
 
