@@ -45,7 +45,7 @@ As Tic-Tac-Toe is a two-player game, the Q-Learning algorithm operates using two
         <li>Playing against the Q-Learning Agent</li>
       </ol>
     </li>
-    <li><strong>Train Button:</strong> Trains the AI for the input number of episodes</li>
+    <li><strong>Train Button:</strong> Trains the AI for the input number of episodes (Disables everything until training is over (Multi-processing not implemented))</li>
 </ul>
 
 <h2>Results:</h2>
