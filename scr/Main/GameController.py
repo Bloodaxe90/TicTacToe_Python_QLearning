@@ -48,9 +48,11 @@ class GameController(QObject):
                     self.q_learning.play(sender)
             elif sender == self.train_button:
                 #Train Ai
-                if isinstance(self.episode_number_line_edit.text(), int):
-                    self.q_learning.MAX_EPISODES = self.episode_number_line_edit.text()
-                self.q_learning.train()
+                try:
+                    self.q_learning.MAX_EPISODES = int(self.episode_number_line_edit.text())
+                    self.q_learning.train()
+                except:
+                    print("Episodes must be an Integer value")
 
 
     @Slot()

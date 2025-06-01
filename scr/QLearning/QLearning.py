@@ -1,3 +1,4 @@
+import os
 from collections import Counter
 
 import numpy as np
@@ -84,7 +85,7 @@ class QLearning(TicTacToe):
                 self.add_diagnostics_data(episode, terminal_tracker)
                 terminal_tracker = []
 
-        self.p1_agent_log.save(f"/Users/eric/PycharmProjects/TicTacToe/Resources/TrainingLogs/{self.P1_AGENT.PLAYER}_log.csv")
+        self.p1_agent_log.save(f"{os.path.dirname(os.path.dirname(os.getcwd()))}/Resources/TrainingLogs/{self.P1_AGENT.PLAYER}_log.csv")
         print("TRAINING HAS FINISHED")
 
 
@@ -114,6 +115,7 @@ class QLearning(TicTacToe):
     def reset_q_tables(self) -> None:
         self.P1_AGENT.q_table = {}
         self.P2_AGENT.q_table = {}
+        print("Both Agent Q-Tables Reset")
 
 
 

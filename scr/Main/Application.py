@@ -1,3 +1,5 @@
+import os
+
 from PySide6.QtGui import QKeyEvent
 from PySide6.QtWidgets import *
 from PySide6.QtUiTools import QUiLoader
@@ -11,7 +13,7 @@ class Application(QMainWindow):
         super().__init__()
 
         loader = QUiLoader()
-        ui_file = QFile("/Users/eric/PycharmProjects/TicTacToe/Resources/UI/TicTacToe.ui")
+        ui_file = QFile(f"{os.path.dirname(os.path.dirname(os.getcwd()))}/Resources/UI/TicTacToe.ui")
         if not ui_file.open(QFile.ReadOnly):
             print(f"Failed to open file: {ui_file.errorString()}")
             return

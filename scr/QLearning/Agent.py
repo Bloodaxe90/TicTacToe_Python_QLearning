@@ -1,3 +1,4 @@
+import os
 import pickle
 
 import numpy as np
@@ -110,16 +111,16 @@ class Agent:
 
     def serialise_q_table(self) -> None:
         serialised_q_table = pickle.dumps(self.q_table)
-        with open(f"../Resources/Q-TABLE/q_table_{self.PLAYER}.pkl", "wb") as file:
+        with open(f"{os.path.dirname(os.path.dirname(os.getcwd()))}/Resources/Q-TABLE/q_table_{self.PLAYER}.pkl", "wb") as file:
             file.write(serialised_q_table)
-            print(f"Q-Table serialised: {self.q_table}")
+            print(f"Agent{self.PLAYER}'s Q-Table serialised: {self.q_table}")
 
 
     def deserialize_q_table(self, target_policy: bool) -> None:
-        policy_path = f"../Resources/Q-TABLE/q_table_{self.PLAYER}.pkl" if not target_policy else f"Resources/Q-TABLE/target_policy_{self.PLAYER}.pkl"
+        policy_path = f"{os.path.dirname(os.path.dirname(os.getcwd()))}{f"/Resources/Q-TABLE/q_table_{self.PLAYER}.pkl" if not target_policy else f"/Resources/Q-TABLE/target_policy_{self.PLAYER}.pkl"}"
         with open(policy_path, "rb") as file:
             self.q_table = pickle.load(file)
-            print(f"Q-Table deserialized: {self.q_table}")
+            print(f"Agent{self.PLAYER}'s Q-Table deserialized: {self.q_table}")
 
 
 
