@@ -1,12 +1,3 @@
-This was me trying to learn python from java. 
-
-As my first project I slowly tranfered all the skills I had learned from java to python.
-
-First I learnet QT Designer and pyside
-Then made tictactoe
-followed by implementing minimax ai on tictactoe
-and finally implementing q learning on tictactoe
-
 <h1 align="center">TicTacToe with Q-Learning</h1>
 
 <h2>Description:</h2>
@@ -20,13 +11,26 @@ This is the first project I worked on after learning Python and a few of its wel
 </p>
 
 <p>
-As Tic-Tac-Toe is a two-player game, the Q-Learning algorithm operates using two agents that play against each other.
+As Tic-Tac-Toe is a two-player game, the Q-Learning algorithm operates using two agents that play against each other. An eligibility trace has also been implemnted to speed up training.
 </p>
 
 <h2>Usage:</h2>
-<p>
-Run the main method in the AI_2048_Application class
-</p>
+<ol>
+  <li>Activate a virtual environment.</li>
+  <li>Run <code>pip install -r requirements.txt</code> to install the dependencies.</li>
+  <li>Run <code>main</code> in the <code>Application.py</code>.</li>
+</ol>
+
+<h2>Hyperparameters:</h2>
+<p>All can be found in <code>QLearning</code></p>
+<ul>
+  <li><code>GAMMA</code> (float): Discount factor</li>
+  <li><code>MAX_ALPHA</code> (float): Initial learning rate</li>
+  <li><code>MIN_ALPHA</code> (float): Minimum learning rate</li>
+  <li><code>MAX_EPSILON</code> (float): Initial exploration rate</li>
+  <li><code>MIN_EPSILON</code> (float): Minimum exploration rate</li>
+  <li><code>LAMBDA</code> (float): Decay rate for eligibility trace</li>
+</ul>
 
 <h2>Controls:</h2>
 <p>
