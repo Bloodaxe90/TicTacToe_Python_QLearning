@@ -18,7 +18,7 @@ As Tic-Tac-Toe is a two-player game, the Q-Learning algorithm operates using two
 <ol>
   <li>Activate a virtual environment.</li>
   <li>Run <code>pip install -r requirements.txt</code> to install the dependencies.</li>
-  <li>Run <code>main</code> in the <code>Application.py</code>.</li>
+  <li>Run <code>Application.py</code>.</li>
 </ol>
 
 <h2>Hyperparameters:</h2>
