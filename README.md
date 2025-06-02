@@ -22,7 +22,7 @@ As Tic-Tac-Toe is a two-player game, the Q-Learning algorithm operates using two
 </ol>
 
 <h2>Hyperparameters:</h2>
-<p>All can be found in <code>QLearning</code></p>
+<p>All can be found in <code>QLearning.py</code></p>
 <ul>
   <li><code>GAMMA</code> (float): Discount factor</li>
   <li><code>MAX_ALPHA</code> (float): Initial learning rate</li>
